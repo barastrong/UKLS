@@ -12,6 +12,7 @@
 <body>
     <h1>CRUD</h1>
     <a href="../nextpage.php"><button>Back</button></a>
+    <a href="Innerjoin.php"><button>Inner Join</button></a>
     <br>
     <table border='1'>
     <tr >
