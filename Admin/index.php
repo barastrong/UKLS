@@ -30,6 +30,7 @@ src="../logo.png"
       <nav class="navbar">
         <a href="nextpage.php">Home</a>
         <a href="nextpage.php">About</a>
+        <a href="admin/index.php">Admin Panel</a>
         <a href="nextpage.php">Contact</a>
         <a href="profile.php">Profile</a>
         <a href="../Logout.php">Logout</a>

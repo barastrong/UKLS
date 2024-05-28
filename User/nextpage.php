@@ -24,14 +24,13 @@ $username = $_SESSION['Username'];
     <header class="header">
       <div class="header-logo">
         <img
-          src="https://static.republika.co.id/uploads/images/inpicture_slide/poster-solo-leveling-webcomic-yang-akan-diadaptasi-menjadi_220706173845-217.png"
+          src="../logo.png"
           style="width: 100px; height: 50%"
         />
       </div>
       <nav class="navbar">
         <a href="nextpage.php">Home</a>
         <a href="#containers">About</a>
-        <a href="admin/index.php">Admin panel</a>
         <a href="#social_icon">Contact</a>
         <a href="profile.php">Profile</a>
         <a href="../Logout.php">Logout</a>

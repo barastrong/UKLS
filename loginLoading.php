@@ -12,7 +12,7 @@ $cek = mysqli_num_rows($login);
 // Cek username dan password
 if($cek > 0){
     $data = mysqli_fetch_assoc($login);
-    $_SESSION['Username'] = $username;
+    $_SESSION['Username'] = $username;  
     $_SESSION['ID'] = $data['ID'];
 
     // Cek jika user login sebagai admin

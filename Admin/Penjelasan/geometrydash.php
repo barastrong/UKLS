@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../../koneksi.php';
 $Id = 3;
 $query = mysqli_query($mysqli,"SELECT * FROM images WHERE ID_PIC = $Id");
@@ -12,7 +13,7 @@ while($data = mysqli_fetch_assoc($query)){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geometry Dash</title>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <link rel="stylesheet" href="flapybirds.css">
+    <link rel="stylesheet" href="flapybird.css">
     <link
       rel="icon"
       href="https://static.republika.co.id/uploads/images/inpicture_slide/poster-solo-leveling-webcomic-yang-akan-diadaptasi-menjadi_220706173845-217.png"
@@ -22,8 +23,10 @@ while($data = mysqli_fetch_assoc($query)){
      <!-- Navbar -->
      <header class="header">
         <div class="header-logo">
-            <img src="https://static.republika.co.id/uploads/images/inpicture_slide/poster-solo-leveling-webcomic-yang-akan-diadaptasi-menjadi_220706173845-217.png" style=" width: 100px;
-            height: 50%;">
+        <img
+          src="../../logo.png"
+          style="width: 100px; height: 50%"
+        />
         </div>
         <nav class="navbar">
             <a href="../nextpage.php">Home</a>
@@ -34,7 +37,7 @@ while($data = mysqli_fetch_assoc($query)){
         </nav>
         <div class="btns">
             <img src="https://static.republika.co.id/uploads/images/inpicture_slide/poster-solo-leveling-webcomic-yang-akan-diadaptasi-menjadi_220706173845-217.png" alt="">
-            <p class="text">People</p>
+            <p class="text"><?php echo htmlspecialchars($_SESSION['Username']); ?></p> <!-- Menampilkan username -->
         </div>
         </header>
        <!-- konten -->

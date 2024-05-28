@@ -31,7 +31,7 @@ if (isset($_SESSION['ID'])) {
             // Simpan ID pesanan di sesi
             $_SESSION['ID_TOPUP'] = $orderID;
             echo "<script>alert('Order successfully submitted!');</script>";
-            header("Refresh: 1.2;url=Order_success.php");
+            header("Refresh: 1.2;url=Order_Success.php");
         } else {
             echo "Error: " . $insert_query . "<br>" . mysqli_error($mysqli);
         }

@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+*{
+  font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+  min-height: 100vh;
+  background-image: url(img.jpg);
+  background-size: cover;
+  background-position: center;
+  text-transform: capitalize;
+  text-decoration: none;
+}   
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  position: relative;
+  background: transparent;
+  backdrop-filter: blur(35px);
+}
+.header-logo img{
+  margin-right: 20px;
+}
+.brand{
+  display: flex;
+  flex-direction: row;
+  font-size: 50px;
+  padding: 15px;
+  text-transform: capitalize;
+  gap: 20px;
+}
+.navbar{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.navbar a{
+  font-size: 20px;
+  color: white;
+  font-weight: 300;
+  text-decoration: none;
+  margin-left: 40px;
+}
+.btns {
+  display: flex;
+  align-items: center;
+}
+
+.btns .img {
+  margin-right: 10px;
+  width: 80px;
+  height: 85px;
+  border-radius: 55%;
+}
+
+.btns .text {
+  margin: 0;
+  margin-top: 10px;
+  text-align: center;
+  color: white;
+}
+.awal{
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.awal h1{
+    font-size: 62px;
+}
+
+.awal p{
+    margin: 10px 0 40px;
+    font-size: 25px;
+}
+
+a .btn{
+    display: inline-block;
+    text-decoration: none;
+    border: 3px solid black;
+    padding: 12px 30px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+.btn:hover{
+    border: 1px red;
+    background: red;
+    transition: 2s;
+}
