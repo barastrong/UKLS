@@ -1,42 +1,39 @@
-<?php 
-// mengaktifkan session pada php
+<?php
+// Mengaktifkan session pada PHP
 session_start();
 include 'koneksi.php';
 
 $username = $_POST['Username'];
 $password = $_POST['Password'];
 
-$login = mysqli_query($mysqli,"select * from pengguna where Username='$username' AND Password='$password'");
+$login = mysqli_query($mysqli, "SELECT * FROM pengguna WHERE Username='$username' AND Password='$password'");
 $cek = mysqli_num_rows($login);
 
-//cek username
+// Cek username dan password
 if($cek > 0){
-    
     $data = mysqli_fetch_assoc($login);
+    $_SESSION['Username'] = $username;
+    $_SESSION['ID'] = $data['ID'];
 
-    //cek jika user login sebagai admin
-    if($data['Level']=="admin"){
-
-        // buat session login dan username
+    // Cek jika user login sebagai admin
+    if($data['Level'] == "admin"){
+        // Buat session login dan username
         $_SESSION['Username'] = $username;
-        $_SESSION['password'] = $password;
         $_SESSION['Level'] = "admin";
-        header("location:Admin/index.php");
-        
-        // cek jika usser login sebagai user
-    }elseif($data['Level']=="user"){
-        // buat session login dan username
-        $_SESSION['Username'] = $username;
-        $_SESSION['password'] = $password;
-        $_SESSION['Level'] = "user";
-        // alihkan ke halaman dashboard user
-        header("location:User/index.php");
+        header("Location: Admin/index.php");
 
-    }else{
-        // alihkan ke halaman login kembali
-        header("location:index.php");
+    // Cek jika user login sebagai user
+    } elseif($data['Level'] == "user"){
+        // Buat session login dan username
+        $_SESSION['Username'] = $username;
+        $_SESSION['Level'] = "user";
+        header("Location: User/index.php");
+
+    } else {
+        // Alihkan ke halaman login kembali
+        header("Location: index.php");
     }
-}else{
-    header("location:index.php?pesan=gagal");
+} else {
+    header("Location: index.php?pesan=gagal");
 }
 ?>

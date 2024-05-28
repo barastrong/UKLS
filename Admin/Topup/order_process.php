@@ -2,37 +2,43 @@
 session_start();
 include '../../koneksi.php';
 
-if (isset($_POST['submit'])) {
-    $product_id = $_POST['product_id'];
-    $quantity = $_POST['quantity'];
-    $usern = $_POST['name'];
-    $email = $_POST['email'];
+if (isset($_SESSION['ID'])) {
+    $user_id = $_SESSION['ID'];
 
-    // Query untuk mendapatkan harga produk
-    $query = "SELECT Price, Image_path, Nama FROM images WHERE ID_PIC = $product_id";
-    $result = mysqli_query($mysqli, $query);
-    $row = mysqli_fetch_assoc($result);
-    $price = $row['Price'];
-    $image = $row['Image_path'];
-    $nama_img = $row['Nama'];
+    if (isset($_POST['submit'])) {
+        $product_id = $_POST['product_id'];
+        $quantity = $_POST['quantity'];
+        $usern = $_POST['name'];
+        $email = $_POST['email'];
 
-    // Hitung total harga   
-    $total_price = $price * $quantity;
+        // Query untuk mendapatkan harga produk
+        $query = "SELECT Price, Image_path, Nama FROM images WHERE ID_PIC = $product_id";
+        $result = mysqli_query($mysqli, $query);
+        $row = mysqli_fetch_assoc($result);
+        $price = $row['Price'];
+        $image = $row['Image_path'];
+        $nama_img = $row['Nama'];
 
-    // Simpan order ke dalam database
-    $insert_query = "INSERT INTO topup (ID_PIC, Nama,User_ID ,Email ,Quantity, Image_path ,Price)
-                     VALUES ('$product_id', '$nama_img','$usern', '$email' ,'$quantity', '$image' ,'$total_price')";
-    if (mysqli_query($mysqli, $insert_query)) {
-        // Ambil ID pesanan terakhir yang dimasukkan
-        $orderID = mysqli_insert_id($mysqli);
-        // Simpan ID pesanan di sesi
-        $_SESSION['ID_TOPUP'] = $orderID;
-        echo "<script>alert('Order successfully submitted!');</script>";
-        header("Refresh: 1.2;url=Order_success.php");
+        // Hitung total harga   
+        $total_price = $price * $quantity;
+
+        // Simpan order ke dalam database
+        $insert_query = "INSERT INTO topup (ID_PIC, Nama, User_ID, Email, Quantity, Image_path, ID, Price)
+                         VALUES ('$product_id', '$nama_img', '$usern', '$email', '$quantity', '$image', '$user_id', '$total_price')";
+        if (mysqli_query($mysqli, $insert_query)) {
+            // Ambil ID pesanan terakhir yang dimasukkan
+            $orderID = mysqli_insert_id($mysqli);
+            // Simpan ID pesanan di sesi
+            $_SESSION['ID_TOPUP'] = $orderID;
+            echo "<script>alert('Order successfully submitted!');</script>";
+            header("Refresh: 1.2;url=Order_success.php");
+        } else {
+            echo "Error: " . $insert_query . "<br>" . mysqli_error($mysqli);
+        }
     } else {
-        echo "Error: " . $insert_query . "<br>" . mysqli_error($mysqli);
+        echo "No data submitted.";
     }
 } else {
-    echo "No data submitted.";
+    echo "Session ID not set.";
 }
 ?>

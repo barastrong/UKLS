@@ -59,24 +59,23 @@ body{
 }
 .btns {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .btns img {
-  float: left;
   margin-right: 10px;
-  left: 10px;
   width: 80px;
   height: 85px;
   border-radius: 50%;
 }
 
 .btns .text {
-  align-self: flex-end;
   margin: 0;
-  text-decoration: center;
+  margin-top: 10px;
+  text-align: center;
   color: white;
 }
+
 /* content */
 .grid{
   display: grid;

@@ -1,3 +1,12 @@
+<?php
+session_start();
+if(!isset($_SESSION['Username']) || $_SESSION['Level'] != "user"){
+    header("Location: ../index.php");
+    exit();
+}
+
+$username = $_SESSION['Username'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,13 +32,14 @@ src="../logo.png"
         <a href="nextpage.php">About</a>
         <a href="nextpage.php">Contact</a>
         <a href="profile.php">Profile</a>
+        <a href="../Logout.php">Logout</a>
       </nav>
       <div class="btns">
         <img
           src="https://static.republika.co.id/uploads/images/inpicture_slide/poster-solo-leveling-webcomic-yang-akan-diadaptasi-menjadi_220706173845-217.png"
           alt=""
         />
-        <p class="text">People</p>
+        <p class="text"><?php echo htmlspecialchars($username); ?></p>
       </div>
     </header>
     <div class="awal">

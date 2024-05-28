@@ -1,10 +1,19 @@
+<?php
+session_start();
+if(!isset($_SESSION['Username']) || $_SESSION['Level'] != "admin"){
+    header("Location: ../index.php");
+    exit();
+}
+
+$username = $_SESSION['Username'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tugas akhir</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="indexs.css">
     <link
       rel="icon"
       href="https://static.republika.co.id/uploads/images/inpicture_slide/poster-solo-leveling-webcomic-yang-akan-diadaptasi-menjadi_220706173845-217.png"
@@ -14,23 +23,23 @@
 <header class="header">
       <div class="header-logo">
         <img
-          src="https://static.republika.co.id/uploads/images/inpicture_slide/poster-solo-leveling-webcomic-yang-akan-diadaptasi-menjadi_220706173845-217.png"
-          style="width: 100px; height: 50%"
+src="../logo.png"
+          style="width: 150px; height: 50%"
         />
       </div>
       <nav class="navbar">
         <a href="nextpage.php">Home</a>
-        <a href="#containers">About</a>
-        <a href="admin/index.php">Admin Panel</a>
-        <a href="#social_icon">Contact</a>
+        <a href="nextpage.php">About</a>
+        <a href="nextpage.php">Contact</a>
         <a href="profile.php">Profile</a>
+        <a href="../Logout.php">Logout</a>
       </nav>
       <div class="btns">
         <img
           src="https://static.republika.co.id/uploads/images/inpicture_slide/poster-solo-leveling-webcomic-yang-akan-diadaptasi-menjadi_220706173845-217.png"
           alt=""
         />
-        <p class="text">People</p>
+        <p class="text"><?php echo htmlspecialchars($username); ?></p>
       </div>
     </header>
     <div class="awal">

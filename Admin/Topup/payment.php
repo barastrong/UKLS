@@ -9,7 +9,7 @@
 <body>
 <form action="order_process.php" method="post">
     <h2>Order Form</h2>
-    <input type="hidden" name="user_id" value="<?php echo $_SESSION['ID']; ?>">
+    <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($_SESSION['ID']); ?>">
         <label for="number">Id game:</label>
         <input type="text" name="name" id="name" placeholder="Massukan User ID" required>
         <label for="product">Product:</label>

@@ -61,25 +61,12 @@ body{
   .btns {
     float: right;
     margin-top: 10px;
+    color: white;
   }
   .btns button {
     padding: 10px 20px;
     border: none;
     border-radius: 6px;
-  }
-  .header__loginbtn a{
-    color: white;
-    text-decoration: none;
-  }
-  .header__loginbtn{
-    background-color: gray;
-  }
-  .header__signupbtn{
-    background-color: red;
-  }
-  .header__signupbtn a{
-    color: white;
-    text-decoration: none;
   }
 .awal{
     width: 90%;

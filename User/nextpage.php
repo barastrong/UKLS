@@ -1,10 +1,11 @@
 <?php
-  include '../koneksi.php';
-  $id = 9 ;
+session_start();
+if(!isset($_SESSION['Username']) || $_SESSION['Level'] != "user"){
+    header("Location: ../index.php");
+    exit();
+}
 
-  $query = mysqli_query($mysqli, "SELECT * FROM images WHERE ID_PIC=$id");
-  while($data = mysqli_fetch_array($query))
-  
+$username = $_SESSION['Username'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,22 +17,24 @@
       href="https://static.republika.co.id/uploads/images/inpicture_slide/poster-solo-leveling-webcomic-yang-akan-diadaptasi-menjadi_220706173845-217.png"
     />
     <title>Web Game</title>
-    <link rel="stylesheet" href="next.css"/>
+    <link rel="stylesheet" href="nexts.css" />
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   </head>
   <body>
     <header class="header">
       <div class="header-logo">
         <img
-          src="../logo.png"
+          src="https://static.republika.co.id/uploads/images/inpicture_slide/poster-solo-leveling-webcomic-yang-akan-diadaptasi-menjadi_220706173845-217.png"
           style="width: 100px; height: 50%"
         />
       </div>
       <nav class="navbar">
         <a href="nextpage.php">Home</a>
         <a href="#containers">About</a>
+        <a href="admin/index.php">Admin panel</a>
         <a href="#social_icon">Contact</a>
         <a href="profile.php">Profile</a>
+        <a href="../Logout.php">Logout</a>
         <a href="Topup/payment.php">Order</a>
         <a href="Topup/Tableorder.php">OrderList</a>
       </nav>
@@ -40,7 +43,7 @@
           src="https://static.republika.co.id/uploads/images/inpicture_slide/poster-solo-leveling-webcomic-yang-akan-diadaptasi-menjadi_220706173845-217.png"
           alt=""
         />
-        <p class="text">People</p>
+        <p class="text"><?php echo htmlspecialchars($username); ?></p>
       </div>
     </header>
     <h1 align="center" id="containers" style="padding: 80px; font-size: 50px">
