@@ -66,6 +66,7 @@ button a{
 .remember-forgot label input{
     accent-color: white;
     margin-right: 3px;
+
 }
 .remember-forgot a{
     color: white;
@@ -118,4 +119,26 @@ button a{
     border: 1px solid #f5c6cb;
     border-radius: 5px;
     margin-bottom: 10px;
+}
+/* Role select */
+.role select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 15px;
+    appearance: none;
+    color: white;
+    background: transparent;
+    transition: border 0.3s;
+    margin-bottom: 20px;
+}
+
+.role select:focus {
+    border-color: #007bff;
+}
+
+.role select option {
+    padding: 10px;
+    background: transparent;
+    color: black; /* Ensuring options text is visible */
 }

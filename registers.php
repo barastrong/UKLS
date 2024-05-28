@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="registers.css">
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </head>
 <body>
@@ -23,6 +23,13 @@
                 <input type="password" placeholder="Password" name="Password">
                 <box-icon type='solid' name='lock-alt'></box-icon>
             </div>
+            <div class="role">
+                <select name="role" id="">
+                    <option value="" disable selected>Select Role</option>
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                </select>
+            </div>
             <br><br>
             <div class="remember-forgot">
                 <label><input type="checkbox" required>I agree to the terms & conditions</label>
@@ -38,7 +45,7 @@
     if (isset($_POST['Submit'])) {
         $user= $_POST['Username'];
         $password= $_POST['Password'];
-        $level= "user";
+        $level= $_POST['role'];
         $email= $_POST['Email'];
 
         include_once("koneksi.php");

@@ -1,38 +1,42 @@
 <?php 
+// mengaktifkan session pada php
 session_start();
 include 'koneksi.php';
 
 $username = $_POST['Username'];
 $password = $_POST['Password'];
 
-// Gunakan parameterized query untuk mencegah SQL Injection
-$stmt = $mysqli->prepare("SELECT * FROM pengguna WHERE Username=?");
-$stmt->bind_param("s", $username);
-$stmt->execute();
-$result = $stmt->get_result();
+$login = mysqli_query($mysqli,"select * from pengguna where Username='$username' AND Password='$password'");
+$cek = mysqli_num_rows($login);
 
-if($result->num_rows > 0) {
-    $data = $result->fetch_assoc();
+//cek username
+if($cek > 0){
+    
+    $data = mysqli_fetch_assoc($login);
 
-    // Gunakan password_verify() untuk memverifikasi kata sandi
-    if(password_verify($password, $data['Password'])) {
+    //cek jika user login sebagai admin
+    if($data['Level']=="admin"){
+
         // buat session login dan username
         $_SESSION['Username'] = $username;
-        $_SESSION['Level'] = $data['Level'];
+        $_SESSION['password'] = $password;
+        $_SESSION['Level'] = "admin";
+        header("location:Admin/index.php");
         
-        // Tentukan lokasi redirect berdasarkan level pengguna
-        if($data['Level'] == "admin") {
-            header("location:Admin/index.php");
-        } elseif($data['Level'] == "user") {
-            header("location:User/index.php");
-        } else {
-            header("location:index.php");
-        }
-    } else {
-        header("location:index.php?pesan=gagal");
+        // cek jika usser login sebagai user
+    }elseif($data['Level']=="user"){
+        // buat session login dan username
+        $_SESSION['Username'] = $username;
+        $_SESSION['password'] = $password;
+        $_SESSION['Level'] = "user";
+        // alihkan ke halaman dashboard user
+        header("location:User/index.php");
+
+    }else{
+        // alihkan ke halaman login kembali
+        header("location:index.php");
     }
-} else {
+}else{
     header("location:index.php?pesan=gagal");
 }
-$stmt->close();
 ?>
