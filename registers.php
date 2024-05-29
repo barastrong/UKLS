@@ -23,13 +23,13 @@
                 <input type="password" placeholder="Password" name="Password">
                 <box-icon type='solid' name='lock-alt'></box-icon>
             </div>
-            <div class="role">
+            <!-- <div class="role">
                 <select name="role" id="">
                     <option value="" disable selected>Select Role</option>
                     <option value="admin">Admin</option>
                     <option value="user">User</option>
                 </select>
-            </div>
+            </div> -->
             <br><br>
             <div class="remember-forgot">
                 <label><input type="checkbox" required>I agree to the terms & conditions</label>
@@ -45,7 +45,7 @@
     if (isset($_POST['Submit'])) {
         $user= $_POST['Username'];
         $password= $_POST['Password'];
-        $level= $_POST['role'];
+        $level= 'user';
         $email= $_POST['Email'];
 
         include_once("koneksi.php");
