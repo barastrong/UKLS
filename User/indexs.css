@@ -85,11 +85,13 @@ body{
 
 .awal h1{
     font-size: 62px;
+    color: black;
 }
 
 .awal p{
     margin: 10px 0 40px;
     font-size: 25px;
+    color: white;
 }
 
 a .btn{
