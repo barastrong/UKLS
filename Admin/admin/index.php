@@ -10,9 +10,9 @@
     />
 </head>
 <body>
-    <h1>CRUD</h1>
+    <h2>CRUD</h2>
     <a href="../nextpage.php"><button>Back</button></a>
-    <a href="Innerjoin.php"><button>Inner Join</button></a>
+    <a href="../Topup/Tableorder.php"><button>Table Order</button></a>
     <br>
     <table border='1'>
     <tr >
@@ -48,44 +48,49 @@ while($data = mysqli_fetch_array($query_mysql)){
 
 </body>
 <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        h1 {
-            margin-bottom: 20px;
-        }
-        button {
-            padding: 10px 20px;
-            margin-bottom: 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        table {
-            border-collapse: collapse;
-            width: 80%;
-            margin-bottom: 20px;
-        }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h2 {
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
         .ganti {
             color: blue;
             text-decoration: none;

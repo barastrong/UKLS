@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Form</title>
-    <link rel="stylesheet" href="Jasa.css">
+    <link rel="stylesheet" href="Jasas.css">
+    <link
+      rel="icon"
+      href="https://static.republika.co.id/uploads/images/inpicture_slide/poster-solo-leveling-webcomic-yang-akan-diadaptasi-menjadi_220706173845-217.png"
+    />
 </head>
 <body>
 <form action="order_process.php" method="post">
     <h2>Order Form</h2>
-
         <label for="number">Id game:</label>
         <input type="text" name="name" id="name" placeholder="Massukan User ID" required>
         <label for="product">Product:</label>

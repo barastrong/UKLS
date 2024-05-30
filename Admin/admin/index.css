@@ -45,8 +45,9 @@ th {
     text-decoration: underline;
 }
 .hapus {
-    color: red;
+    color: white;
     text-decoration: none;
+    background-color: #dc3545;
 }
 .hapus:hover {
     text-decoration: underline;
