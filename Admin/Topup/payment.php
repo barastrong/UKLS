@@ -36,6 +36,9 @@
         <label for="email">Email (opisional)</label>
         <input type="email" id="name" name="email" placeholder="Masukkan email" required>
         <input type="submit" value="Submit Order" name="submit">
+        <br>
+        <br>
+        <input type="submit" class="back" value="Back" onclick="location.href='../nextpage.php'">
     </form>
 </body>
 </html>

@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <link rel="stylesheet" href="registers.css">
+    <title>Add Produk</title>
     <link
       rel="icon"
       href="https://static.republika.co.id/uploads/images/inpicture_slide/poster-solo-leveling-webcomic-yang-akan-diadaptasi-menjadi_220706173845-217.png"
@@ -53,6 +52,7 @@
                 <input type="file" name="gambar" required>
             </div>
             <input type="submit" class="btn" name="Submit" value="Submit">
+            <input type="submit" class="btn" value="Back" onclick="location.href='index.php'">
         </div>
     </form>
 
