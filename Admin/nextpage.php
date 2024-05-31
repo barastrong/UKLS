@@ -35,6 +35,7 @@ $username = $_SESSION['Username'];
             <a href="admin/index.php">Admin Panel</a>
             <a href="Add Produk/index.php">Table Produk</a>
             <a href="Topup/payment.php">Order</a>
+            <a href="Topup/Tableorder.php">Order list</a>
             <a href="../Logout.php">Logout</a>
         </nav>
         <div class="btns">

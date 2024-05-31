@@ -2,7 +2,7 @@
 // Mulai sesi untuk melacak pengguna yang login
 session_start();
 
-// Cek apakah parameter 'id'     ada di URL, jika tidak ada, arahkan ke 'nextpage.php'
+// Cek apakah parameter 'id' ada di URL, jika tidak ada, arahkan ke 'nextpage.php'
 if (!isset($_GET['id'])) {
     header('Location: ../nextpage.php');
     exit();

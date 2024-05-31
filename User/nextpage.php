@@ -33,6 +33,7 @@ $username = $_SESSION['Username'];
             <a href="#social_icon">Contact</a>
             <a href="profile.php">Profile</a>
             <a href="Topup/payment.php">Order</a>
+            <a href="Topup/Tableorder.php">Order list</a>
             <a href="../Logout.php">Logout</a>
         </nav>
         <div class="btns">

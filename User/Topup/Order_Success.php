@@ -18,6 +18,7 @@ body {
     height: 100vh; /* Full viewport height */
     margin: 0; /* Remove default margin */
     font-family: Arial, sans-serif; /* Optional: improve font appearance */
+    background-color: #f4f4f4; /* Optional: set background color */
 }
 
 /* Style the success message container */
@@ -25,7 +26,6 @@ body {
     border: 1px solid #ccc;
     padding: 20px; /* Increase padding for better appearance */
     max-width: 500px;
-    border-radius:10px;
     background-color: #fff; /* Optional: set background color */
     text-align: left; /* Align text to the left for readability */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add box shadow for depth */
@@ -73,7 +73,7 @@ h2 {
 
                 if ($result && mysqli_num_rows($result) > 0) {
                     $order = mysqli_fetch_assoc($result);
-                    echo "<img src='../../Admin/Add Produk/{$order['Image_path']}'>";
+                    echo "<img src='../Add Produk/{$order['Image_path']}'>";
                     echo "<li><strong>Order ID:</strong> {$order['ID_TOPUP']}</li>";
                     echo "<li><strong>Product Name:</strong> {$order['Nama']}</li>";
                     echo "<li><strong>ID Game:</strong> {$order['User_ID']}</li>";

@@ -3,10 +3,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f2f2f2;
-    min-height: 100vh;
-    background-image: url(../img.jpg);
-    background-size: cover;
-    background-position: center;
 }
 
 form {
@@ -39,7 +35,6 @@ select {
     border-radius: 3px;
     box-sizing: border-box;
 }
-
 input[type="submit"] {
     width: 100%;
     padding: 10px;

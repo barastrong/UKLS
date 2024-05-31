@@ -42,9 +42,9 @@ while($data = mysqli_fetch_array($query_mysql)){
 </table>
     </main>
 
-    <footer>
+    <!-- <footer>
         <p>Hak Cipta &copy; 2024 Admin Page.</p>
-    </footer>
+    </footer> -->
 
 </body>
 <style>
