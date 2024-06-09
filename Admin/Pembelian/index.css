@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Center contents horizontally and vertically */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Ensure full viewport height */
+}
+
+.container {
+    max-width: 500px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: black;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto; /* Center horizontally within container */
+    background-color: #F96666; /* Light gray background color for the form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.Nama h2 {
+    color: black; /* Change color as desired */
+    margin-bottom: 10px;
+}
+
+.ID label,
+.Quaintity label,
+.email label,
+.Price label {
+    display: block;
+    margin-bottom: 5px;
+    color: black;
+}
+
+input[type="number"],
+input[type="email"],
+input[type="submit"],
+input[type="button"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type="submit"],
+input[type="button"] {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}

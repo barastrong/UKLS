@@ -2,74 +2,43 @@
 session_start();
 include '../../koneksi.php';
 
-if (!isset($_SESSION['ID'])) {
-    echo "User not logged in.";
-    exit();
-}
+if (isset($_SESSION['ID'])) {
+    $user_id = $_SESSION['ID'];
 
-$iduser = $_SESSION['ID'];
+    if (isset($_POST['Submit'])) {
+        $product_id = $_POST['id_produk'];
+        $quantity = $_POST['jumlah'];
+        $usern = $_POST['Id_Game'];
+        $email = $_POST['email'];
 
-if (isset($_POST['Submit'])) {
-    $id_game = htmlspecialchars($_POST['Id_Game']);
-    $id_produk = htmlspecialchars($_POST['id_produk']);
-    $jumlah = htmlspecialchars($_POST['jumlah']);
-    $email = htmlspecialchars($_POST['email']);
+        // Query untuk mendapatkan harga produk
+        $query = "SELECT Price, Image_path, Nama FROM images WHERE ID_PIC = $product_id";
+        $result = mysqli_query($mysqli, $query);
+        $row = mysqli_fetch_assoc($result);
+        $price = $row['Price'];
+        $image = $row['Image_path'];
+        $nama_img = $row['Nama'];
 
-    // Validate inputs
-    if (empty($id_game) || empty($id_produk) || empty($jumlah)) {
-        echo "All fields except email are required.";
-        exit();
-    }
+        // Hitung total harga   
+        $total_price = $price * $quantity;
 
-    // Check if the user ID exists in the pengguna table
-    $user_check_stmt = $mysqli->prepare("SELECT ID FROM pengguna WHERE ID = ?");
-    $user_check_stmt->bind_param("i", $iduser);
-    $user_check_stmt->execute();
-    $user_check_stmt->store_result();
-
-    if ($user_check_stmt->num_rows == 0) {
-        echo "User not found.";
-        exit();
-    }
-
-    $user_check_stmt->close();
-
-    // Prepare statement to fetch product details
-    $stmt = $mysqli->prepare("SELECT Nama, Price, Image_path FROM images WHERE ID_PIC = ?");
-    $stmt->bind_param("i", $id_produk);
-
-    if ($stmt->execute()) {
-        $result = $stmt->get_result();
-
-        if ($hasil = $result->fetch_assoc()) {
-            $harga = $hasil['Price'];
-            $nama_produk = $hasil['Nama'];
-            $image_path = $hasil['Image_path'];
-
-            $total = $harga * $jumlah;
-
-            // Prepare insert statement
-            $insert_stmt = $mysqli->prepare("INSERT INTO topup (Nama, User_ID, Email, Image_path, Price, Quantity, ID, ID_PIC) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-            $insert_stmt->bind_param("sisdsiii", $nama_produk, $iduser, $email, $image_path, $total, $jumlah, $id_game, $id_produk);
-
-            if ($insert_stmt->execute()) {
-                $orderID = $insert_stmt->insert_id;
-                $_SESSION['ID_TOPUP'] = $orderID; // Set the session variable with the transaction ID
-                echo "Transaction successful.";
-            } else {
-                echo "Error: " . $insert_stmt->error;
-            }
-
-            $insert_stmt->close();
+        // Simpan order ke dalam database
+        $insert_query = "INSERT INTO topup (ID_PIC, Nama, User_ID, Email, Quantity, Image_path, ID, Price)
+                         VALUES ('$product_id', '$nama_img', '$usern', '$email', '$quantity', '$image', '$user_id', '$total_price')";
+        if (mysqli_query($mysqli, $insert_query)) {
+            // Ambil ID pesanan terakhir yang dimasukkan
+            $orderID = mysqli_insert_id($mysqli);
+            // Simpan ID pesanan di sesi
+            $_SESSION['ID_TOPUP'] = $orderID;
+            echo "<script>alert('Order successfully submitted!');</script>";
+            header("Refresh: 1.2;url=success.php");
         } else {
-            echo "Product not found.";
+            echo "Error: " . $insert_query . "<br>" . mysqli_error($mysqli);
         }
-
-        $stmt->close();
     } else {
-        echo "Error: " . $stmt->error;
+        echo "No data submitted.";
     }
 } else {
-    echo "Invalid input data.";
+    echo "Session ID not set.";
 }
 ?>

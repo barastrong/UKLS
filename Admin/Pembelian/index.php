@@ -31,6 +31,7 @@ mysqli_close($mysqli);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Topup</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <form action="proses.php" method="post">
@@ -40,23 +41,23 @@ mysqli_close($mysqli);
         <div>
             <img src="../Add Produk/<?php echo $image; ?>" alt="">
         </div>
-        <div>
+        <div class="Nama">
             <h2><?php echo $name; ?></h2>
         </div>
-        <div>
+        <div clas="ID">
             <label for=""><strong>ID Game:</strong></label>
             <input type="number" min="1" name="Id_Game" required>
         </div>
-        <div>
+        <div class="Quaintity">
             <label for=""><strong>Quantity:</strong></label>
             <input type="number" min="1" name="jumlah">
         </div>
-        <div>
+        <div class="email">
             <label for=""><strong>Email (optional):</strong></label>
             <input type="email" name="email">
         </div>
         <hr>
-        <div>
+        <div class="Price">
             <label for=""><strong>Price:</strong><?php echo $harga; ?></label>
         </div>
         <input type="submit" name="Submit" value="Buy">

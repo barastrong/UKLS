@@ -79,13 +79,13 @@ body{
 .grid{
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  margin: 80px;
+  margin: 85px;
   align-items: center;
-  grid-gap: 30px;
+  grid-gap: 35px;
 }
 .grid article{
   box-shadow: 5px 5px 5px 0px black;
-  border-radius: 15px;
+  border-radius: 10px;
   text-align: center;
   backdrop-filter: blur(30px);
 }
@@ -107,9 +107,9 @@ body{
   color: black;
   font-weight: 500;
   display: inline-block;
-  padding: 14px 28px;
-  border-radius: 100px;
-  margin: 50px;
+  padding: 14px;
+  border-radius: 25px 25px;
+  margin: 25px;
 }
 /* footer */
 footer{
@@ -140,7 +140,7 @@ footer .social_icon li a{
   transition: 0.5s;
 }
 footer .social_icon li a:hover{
-  transform: translateY(-10px);
+  transform: translateY(-12px);
 }
 footer p{
   text-align: center;

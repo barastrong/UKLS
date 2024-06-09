@@ -34,7 +34,6 @@ $username = $_SESSION['Username'];
             <a href="profile.php">Profile</a>
             <a href="admin/index.php">Admin Panel</a>
             <a href="Add Produk/index.php">Table Produk</a>
-            <a href="Topup/payment.php">Order</a>
             <a href="Topup/Tableorder.php">Order list</a>
             <a href="../Logout.php">Logout</a>
         </nav>
@@ -71,7 +70,7 @@ $username = $_SESSION['Username'];
                     <p><?php echo htmlspecialchars($row['Penjelasan']); ?></p>
                 </div>
                 <a href="Penjelasan/flapybird.php?id=<?php echo htmlspecialchars($row['ID_PIC']); ?>"><button class="btn">Baca Selengkapnya</button></a>
-                <!-- <a href="Pembelian/index.php?id=<?php echo htmlspecialchars($row['ID_PIC'])?>"><button class="btn">Buy</button></a> -->
+                <a href="Pembelian/index.php?id=<?php echo htmlspecialchars($row['ID_PIC'])?>"><button class="btn">Buy</button></a>
             </article>
             <?php } ?>
         </main>
