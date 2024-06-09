@@ -15,8 +15,6 @@
     <table>
         <tr>
             <th>ID</th>
-            <th>ID Produk</th>
-            <th>ID User</th>
             <th>Nama Produk</th>
             <th>Quantity</th>
             <th>Harga</th>
@@ -29,6 +27,7 @@
             if (isset($_SESSION['ID'])) {
                 $user_id = $_SESSION['ID'];
 
+                $no = 1;
                 $sql = "SELECT * FROM topup WHERE ID = $user_id";
 
                 $result = mysqli_query($mysqli, $sql);
@@ -37,13 +36,12 @@
                     while ($row = mysqli_fetch_assoc($result)) {
         ?>
         <tr>
-            <td><?php echo $row['ID_TOPUP']; ?></td>
-            <td><?php echo $row['ID_PIC']; ?></td>
-            <td><?php echo $row['ID']; ?></td>
+            <td><?php echo $no++; ?></td>
             <td><?php echo $row['Nama']; ?></td>
             <td><?php echo $row['Quantity']; ?></td>
             <td><?php echo 'Rp.'.$row['Price'];?></td>
             <td><?php echo $row['Tanggal_Pembelian']; ?></td>
+            <td><a href='deletes.php?Id=<?php echo  $row['ID_TOPUP'];?>'>Batalkan Pemesanan</a></td>
         </tr>
         <?php
                     }
@@ -55,9 +53,6 @@
             }
         ?>
     </table>
-    <footer>
-        Footer Content Here
-    </footer>
 </body>
 <style>
 body {
@@ -110,14 +105,6 @@ button:hover {
 
 .hapus:hover {
     text-decoration: underline;
-}
-
-footer {
-    text-align: center;
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #ddd;
-    width: 100%;
 }
 </style>
 </html>

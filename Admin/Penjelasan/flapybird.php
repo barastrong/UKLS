@@ -50,7 +50,7 @@ if (!$data) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($data['Nama']); ?></title>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <link rel="stylesheet" href="flapybird.css">
+    <link rel="stylesheet" href="flapybirds.css">
     <link
       rel="icon"
       href="https://static.republika.co.id/uploads/images/inpicture_slide/poster-solo-leveling-webcomic-yang-akan-diadaptasi-menjadi_220706173845-217.png"
@@ -76,7 +76,7 @@ if (!$data) {
     <!-- Content -->
     <div class="about">
         <div class="about-img">
-            <img src="../../Admin/Add Produk/<?php echo $data['Image_path']?>" alt="" width="60%" height="60%">
+            <img src="../../Admin/Add Produk/<?php echo $data['Image_path']?>" alt="" width="25%" height="25%">
         </div>
         <div class="rating">
             <h2>Rating: <?php echo htmlspecialchars($data["rating"]); ?></h2>
@@ -104,6 +104,14 @@ if (!$data) {
     <div class="display">
         <h2><?php echo htmlspecialchars($data['display3']); ?></h2>
         <p><?php echo htmlspecialchars($data['Penjelasan4']); ?></p>
+    </div>
+    <div class="rating-form">
+        <h2>Submit Your Rating</h2>
+        <form action="../Rating/rating_proses.php?id=<?php echo htmlspecialchars($data['ID_PIC']); ?>" method="post">
+            <label for="rating">Rating (1-5):</label>
+            <input type="number" id="rating" name="rating" min="1" max="5" required>
+            <button type="submit" name="submit">Submit Rating</button>
+        </form>
     </div>
     <br><br><br><br>
     <!-- Footer -->

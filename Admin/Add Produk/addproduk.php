@@ -22,9 +22,6 @@
             <textarea placeholder="Berikan Description Produk" name="Penjelasan" maxlength="500" required></textarea>
             </div>
             <div class="input-box">
-                <input type="number" placeholder="Berikan Rating" name="Rating" required>
-            </div>
-            <div class="input-box">
                 <input type="number" placeholder="Input Harga" name="Harga" required>
             </div>
             <div class="input-box">
@@ -85,12 +82,12 @@ if (isset($_POST['Submit'])) {
     if ($check !== false && in_array($imageFileType, $allowed_types)) {
         if (move_uploaded_file($_FILES["gambar"]["tmp_name"], $target_file)) {
             // File is valid, proceed to insert into database using prepared statement
-            $query = "INSERT INTO images (Nama, Penjelasan, rating, Image_path, Price, Penjelasan0, display, display2, display3, Penjelasan2, Penjelasan3, Penjelasan4) 
-                      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $query = "INSERT INTO images (Nama, Penjelasan, Image_path, Price, Penjelasan0, display, display2, display3, Penjelasan2, Penjelasan3, Penjelasan4) 
+                      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $mysqli->prepare($query);
             if ($stmt) {
                 // Bind parameters and execute the statement
-                $stmt->bind_param("ssisssssssss", $Nama_Produk, $Penjelasan, $Rating, $target_file, $Harga, $Penjelasan0, $display, $display2, $display3, $Penjelasan2, $Penjelasan3, $Penjelasan4);
+                $stmt->bind_param("sssssssssss", $Nama_Produk, $Penjelasan ,$target_file, $Harga, $Penjelasan0, $display, $display2, $display3, $Penjelasan2, $Penjelasan3, $Penjelasan4);
                 if ($stmt->execute()) {
                     echo "<script>alert('Product has been successfully registered.');</script>";
                     header("location:../nextpage.php");

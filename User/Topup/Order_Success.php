@@ -73,7 +73,7 @@ h2 {
 
                 if ($result && mysqli_num_rows($result) > 0) {
                     $order = mysqli_fetch_assoc($result);
-                    echo "<img src='../Add Produk/{$order['Image_path']}'>";
+                    echo "<img src='../../Admin/Add Produk/{$order['Image_path']}'>";
                     echo "<li><strong>Order ID:</strong> {$order['ID_TOPUP']}</li>";
                     echo "<li><strong>Product Name:</strong> {$order['Nama']}</li>";
                     echo "<li><strong>ID Game:</strong> {$order['User_ID']}</li>";

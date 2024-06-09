@@ -31,7 +31,7 @@
         </select>
         <br>
         <label for="quantity">Jumlah Pembelian:</label>
-        <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+        <input type="number" id="quantity" name="quantity" min="1" value="1" max="10" required>
         <br>
         <label for="email">Email (opisional)</label>
         <input type="email" id="name" name="email" placeholder="Masukkan email" required>
