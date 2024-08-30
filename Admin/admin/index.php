@@ -15,32 +15,31 @@
     <a href="../Topup/Tableorder.php"><button>Table Order</button></a>
     <br>
     <table border='1'>
-    <tr >
-        <td>ID</td>
-        <td>Username</td>
-        <td>password</td>
-        <td>level</td>
-        <td>email</td>
-    </tr>
-    <?php 
-include "../../koneksi.php";
-$query_mysql = mysqli_query($mysqli,"SELECT * FROM pengguna")or die(mysqli_error());
-
-while($data = mysqli_fetch_array($query_mysql)){
-?>
-<tr>
-    <td><?php echo $data['ID']; ?></td>
-    <td><?php echo $data['Username']; ?></td>
-    <td><?php echo $data['Password']; ?></td>
-    <td><?php echo $data['Level']; ?></td>
-    <td><?php echo $data['Email']; ?></td>
-    <td ><a href='edit.php?id=<?php echo $data['ID'];?>' class="ganti">Edit</a></td>
-    <td ><a href='delete.php?id=<?php echo $data['ID'];?>' class="hapus">Delete</a></td>
-
-</tr>
-<?php } ?>
-</table>
-    </main>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Level</th>
+            <th>Email</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <?php 
+        include "../../koneksi.php";
+        $query_mysql = mysqli_query($mysqli, "SELECT * FROM pengguna") or die(mysqli_error($mysqli));
+        while($data = mysqli_fetch_array($query_mysql)) {
+        ?>
+        <tr>
+            <td><?php echo $data['ID']; ?></td>
+            <td><?php echo $data['Username']; ?></td>
+            <td><?php echo $data['Password']; ?></td>
+            <td><?php echo $data['Level']; ?></td>
+            <td><?php echo $data['Email']; ?></td>
+            <td><a href='edit.php?id=<?php echo $data['ID'];?>' class="ganti">Edit</a></td>
+            <td><a href='delete.php?id=<?php echo $data['ID'];?>' class="hapus">Delete</a></td>
+        </tr>
+        <?php } ?>
+    </table>
 
     <!-- <footer>
         <p>Hak Cipta &copy; 2024 Admin Page.</p>
@@ -91,28 +90,30 @@ button:hover {
     background-color: #0056b3;
 }
 
-        .ganti {
-            color: blue;
-            text-decoration: none;
-        }
-        .ganti:hover {
-            text-decoration: underline;
-        }
-        .hapus {
-            color: red;
-            text-decoration: none;
-        }
-        .hapus:hover {
-            text-decoration: underline;
-        }
-        footer {
-            text-align: center;
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #ddd;
-            width: 100%;
-        }
-    </style>
+.ganti {
+    color: blue;
+    text-decoration: none;
+}
+
+.ganti:hover {
+    text-decoration: underline;
+}
+
+.hapus {
+    color: red;
+    text-decoration: none;
+}
+
+.hapus:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #ddd;
+    width: 100%;
+}
 </style>
-</body>
 </html>
